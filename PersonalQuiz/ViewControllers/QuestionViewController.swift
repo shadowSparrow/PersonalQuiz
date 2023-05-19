@@ -9,6 +9,17 @@ import UIKit
 
 class QuestionViewController: UIViewController {
 
+    
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var questionLabel: UILabel!
+    
+    @IBOutlet weak var singleStackView: UIStackView!
+    
+    
+    @IBOutlet weak var multipleStackView: UIStackView!
+   
+    @IBOutlet weak var rangedStackView: UIStackView!
+    
     private let questions = Question.getQuestions()
     
     override func viewDidLoad() {
@@ -16,25 +27,15 @@ class QuestionViewController: UIViewController {
         
         setupUI()
     }
-    
-    @IBAction func singleButtonAnswerPressed(_ sender: UIButton) {
-    }
-    
-    @IBAction func multipleActionButtonPressed() {
-    }
-    
-    @IBAction func rangedAnswerButtonPressed() {
-    }
-    
 }
 
 extension QuestionViewController {
     private func setupUI() {
         
         
-        //for stackView in [singleQuestionStackView, multipleStackView, rangedStackView] {
-            //stackView?.isHidden = true
-        //}
+        for stackView in [singleStackView, multipleStackView, rangedStackView] {
+            stackView?.isHidden = true
+        }
         
     }
     

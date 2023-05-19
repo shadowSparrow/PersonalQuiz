@@ -188,9 +188,6 @@
                                         <rect key="frame" x="0.0" y="188" width="280" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Ответить"/>
-                                        <connections>
-                                            <action selector="multipleActionButtonPressed" destination="q8U-Th-MIu" eventType="touchUpInside" id="qHe-RG-JvZ"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -221,9 +218,6 @@
                                         <rect key="frame" x="0.0" y="74.5" width="280" height="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="rangedAnswerButtonPressed" destination="q8U-Th-MIu" eventType="touchUpInside" id="d63-t1-EPK"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -262,6 +256,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="multipleStackView" destination="pik-3k-Ict" id="IC1-6T-9Fs"/>
+                        <outlet property="progressView" destination="ozs-3V-xH7" id="DWO-jJ-Gyc"/>
+                        <outlet property="questionLabel" destination="x0o-Ul-bkP" id="Hbh-k4-dZ4"/>
+                        <outlet property="rangedStackView" destination="EjY-cj-wAY" id="7ZB-tb-Md5"/>
+                        <outlet property="singleStackView" destination="UH9-eP-tib" id="Fq6-c9-7dl"/>
                         <segue destination="Ool-qg-iRR" kind="show" identifier="showResult" id="WRM-5Z-HJx"/>
                     </connections>
                 </viewController>
