@@ -9,54 +9,48 @@ import Foundation
 
 struct Question {
     let title: String
-    let type: QuestionType
-    let answer: [AnswerType]
+    let type: ResponseType
+    let answers: [Answer]
     
     static func getQuestions() -> [Question] {
         [
             
             // Списков вопросов
-        Question(title: "Какую пищу предпочитаете", type: .single, answer: [
+        Question(title: "Какую пищу предпочитаете?", type: .single, answers: [
         
-            AnswerType(title: "Мясо", type: .dog),
-            AnswerType(title: "Рыба", type: .cat),
-            AnswerType(title: "Морковь", type: .rabbit),
-            AnswerType(title: "Капуста", type: .turtle)
+            Answer(title: "Мясо", type: .dog),
+            Answer(title: "Рыба", type: .cat),
+            Answer(title: "Морковь", type: .rabbit),
+            Answer(title: "Капуста", type: .turtle)
         ]),
-        Question(title: "Что вам нравится больше?", type: .multiple, answer: [
+        Question(title: "Что вам нравится больше?", type: .multiple, answers: [
         
         
-            AnswerType(title: "Плавать", type: .dog),
-            AnswerType(title: "Спать", type: .cat),
-            AnswerType(title: "Обниматься", type: .rabbit),
-            AnswerType(title: "Есть", type: .turtle)
+            Answer(title: "Плавать", type: .dog),
+            Answer(title: "Спать", type: .cat),
+            Answer(title: "Обниматься", type: .rabbit),
+            Answer(title: "Есть", type: .turtle)
         
         ]),
         
-        Question(title: "Либите ли вы поездки на машине?", type: .ranged, answer: [
+        Question(title: "Либите ли вы поездки на машине?", type: .ranged, answers: [
         
-            AnswerType(title: "Ненавижу", type: .dog),
-            AnswerType(title: "Нервничаю", type: .cat),
-            AnswerType(title: "Не замечаю", type: .rabbit),
-            AnswerType(title: "Обожаю", type: .turtle)
+            Answer(title: "Ненавижу", type: .dog),
+            Answer(title: "Нервничаю", type: .cat),
+            Answer(title: "Не замечаю", type: .rabbit),
+            Answer(title: "Обожаю", type: .turtle)
         
         ])
-        
-        
-        
-        
         ]
-        
-        
     }
     
 }
-enum QuestionType {
+enum ResponseType {
     case single
     case multiple
     case ranged
 }
-struct AnswerType{
+struct Answer {
     let title: String
     let type: AnimalType
 }

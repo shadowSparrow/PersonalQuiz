@@ -333,7 +333,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yfu-n8-h8f">
-                        <barButtonItem key="rightBarButtonItem" title="Done" style="plain" id="mk9-Ft-LLW">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="mk9-Ft-LLW">
                             <connections>
                                 <segue destination="NNh-SI-3gZ" kind="unwind" unwindAction="unwindFor:" id="oxy-bh-eUC"/>
                             </connections>
