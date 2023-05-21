@@ -115,16 +115,25 @@
                                         <rect key="frame" x="0.0" y="48" width="280" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerButtonPressed:" destination="q8U-Th-MIu" eventType="touchUpInside" id="vWq-h9-wt4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VG3-CL-YVc">
                                         <rect key="frame" x="0.0" y="96" width="280" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerButtonPressed:" destination="q8U-Th-MIu" eventType="touchUpInside" id="8JA-sS-5xT"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9D4-PA-fAs">
                                         <rect key="frame" x="0.0" y="144" width="280" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerButtonPressed:" destination="q8U-Th-MIu" eventType="touchUpInside" id="Ic4-uO-Zpk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -367,7 +376,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="llP-UZ-9d7"/>
+        <segue reference="WRM-5Z-HJx"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

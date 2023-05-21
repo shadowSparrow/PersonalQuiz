@@ -35,22 +35,27 @@ class QuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
-        
     }
     
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
-         
         guard let buttonIndex = singleButtons.firstIndex(of: sender) else {return}
+        
         let currentAnswer = currentAnswers[buttonIndex]
         answerChosen.append(currentAnswer)
-        
         nextQuestion()
-        
     }
     
     @IBAction func multipleStackViewButtonPressed() {
+        
+        for (multipleSwitch, answer) in zip(multipleSwitches, currentAnswers) {
+            if multipleSwitch.isOn {
+                answerChosen.append(answer)
+            }
+        }
+        print(answerChosen)
+        nextQuestion()
+        
     }
     
     @IBAction func rangedAnswerButtonPressed() {
@@ -78,7 +83,7 @@ extension QuestionViewController {
         case .single:
             showSingleStackView(with: currentAnswers)
         case .multiple:
-            showSingleStackView(with: currentAnswers)
+            showMultipleStackView(with: currentAnswers)
         case .ranged:
             break
         }
@@ -89,27 +94,26 @@ extension QuestionViewController {
         
         for (button, answer) in zip(singleButtons, answers) {
             button.setTitle(answer.title, for: .normal)
+        
         }
     }
     
     private func showMultipleStackView(with answers: [Answer]) {
-        singleStackView.isHidden = false
-        
+        multipleStackView.isHidden = false
         for (label, answer) in zip(multipleLabels, answers) {
             label.text = answer.title
         }
-        
     }
     
     private func nextQuestion() {
         questionIndex += 1
-        
         if questionIndex < questions.count {
             setupUI()
-            return //?
+            return
         }
         
         performSegue(withIdentifier: "showResult", sender: nil)
+    
         
     }
     
