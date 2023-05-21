@@ -27,6 +27,8 @@ class QuestionViewController: UIViewController {
     
     private let questions = Question.getQuestions()
     private var questionIndex = 0
+    private var answerChosen: [Answer] = []
+    
     private var currentAnswers: [Answer] {
         questions[questionIndex].answers
     }
@@ -39,8 +41,14 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
+         
+        guard let buttonIndex = singleButtons.firstIndex(of: sender) else {return}
+        let currentAnswer = currentAnswers[buttonIndex]
+        answerChosen.append(currentAnswer)
+        
+        nextQuestion()
+        
     }
-    
     
     @IBAction func multipleStackViewButtonPressed() {
     }
@@ -70,7 +78,7 @@ extension QuestionViewController {
         case .single:
             showSingleStackView(with: currentAnswers)
         case .multiple:
-            break
+            showSingleStackView(with: currentAnswers)
         case .ranged:
             break
         }
@@ -82,6 +90,27 @@ extension QuestionViewController {
         for (button, answer) in zip(singleButtons, answers) {
             button.setTitle(answer.title, for: .normal)
         }
+    }
+    
+    private func showMultipleStackView(with answers: [Answer]) {
+        singleStackView.isHidden = false
+        
+        for (label, answer) in zip(multipleLabels, answers) {
+            label.text = answer.title
+        }
+        
+    }
+    
+    private func nextQuestion() {
+        questionIndex += 1
+        
+        if questionIndex < questions.count {
+            setupUI()
+            return //?
+        }
+        
+        performSegue(withIdentifier: "showResult", sender: nil)
+        
     }
     
 }
