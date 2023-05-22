@@ -21,10 +21,16 @@ class QuestionViewController: UIViewController {
     @IBOutlet var multipleSwitches: [UISwitch]!
     
     @IBOutlet weak var rangedStackView: UIStackView!
-    @IBOutlet weak var rangedSlider: UISlider!
+    @IBOutlet weak var rangedSlider: UISlider!{
+        didSet {
+            let answersCount = Float(questions.count - 1)
+            rangedSlider.maximumValue = answersCount
+            rangedSlider.value = answersCount / 2
+        }
+        
+    }
+    
     @IBOutlet var rangedLabels: [UILabel]!
-    
-    
     private let questions = Question.getQuestions()
     private var questionIndex = 0
     private var answerChosen: [Answer] = []
@@ -43,6 +49,7 @@ class QuestionViewController: UIViewController {
         
         let currentAnswer = currentAnswers[buttonIndex]
         answerChosen.append(currentAnswer)
+        print(answerChosen)
         nextQuestion()
     }
     
@@ -59,6 +66,11 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func rangedAnswerButtonPressed() {
+        let index = lrintf(rangedSlider.value)
+        answerChosen.append(currentAnswers[index])
+        print(answerChosen)
+        nextQuestion()
+        
     }
 }
 
@@ -85,7 +97,7 @@ extension QuestionViewController {
         case .multiple:
             showMultipleStackView(with: currentAnswers)
         case .ranged:
-            break
+            showRangedStackView(with: currentAnswers)
         }
     }
     
@@ -97,24 +109,23 @@ extension QuestionViewController {
         
         }
     }
-    
     private func showMultipleStackView(with answers: [Answer]) {
         multipleStackView.isHidden = false
         for (label, answer) in zip(multipleLabels, answers) {
             label.text = answer.title
         }
     }
-    
+    private func showRangedStackView(with answers: [Answer]) {
+        rangedStackView.isHidden = false
+        rangedLabels.first?.text = answers.first?.title
+        rangedLabels.last?.text = answers.last?.title
+    }
     private func nextQuestion() {
         questionIndex += 1
         if questionIndex < questions.count {
             setupUI()
             return
         }
-        
         performSegue(withIdentifier: "showResult", sender: nil)
-    
-        
     }
-    
 }
