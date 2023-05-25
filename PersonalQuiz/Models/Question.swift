@@ -74,3 +74,8 @@ enum AnimalType: Character {
         }
     }
 }
+
+struct Animal {
+    var count: Int
+    var type: AnimalType
+}

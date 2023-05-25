@@ -27,7 +27,6 @@ class QuestionViewController: UIViewController {
             rangedSlider.maximumValue = answersCount
             rangedSlider.value = answersCount / 2
         }
-        
     }
     
     @IBOutlet var rangedLabels: [UILabel]!
@@ -44,12 +43,21 @@ class QuestionViewController: UIViewController {
         setupUI()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+             guard segue.identifier == "showResult" else { return }
+             guard let destination = segue.destination as? ResultsViewController else { return }
+        destination.answers = self.answerChosen
+         
+    }
+    
+    
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
         guard let buttonIndex = singleButtons.firstIndex(of: sender) else {return}
         
         let currentAnswer = currentAnswers[buttonIndex]
         answerChosen.append(currentAnswer)
-        print(answerChosen)
+        //print(answerChosen)
         nextQuestion()
     }
     
@@ -60,7 +68,7 @@ class QuestionViewController: UIViewController {
                 answerChosen.append(answer)
             }
         }
-        print(answerChosen)
+        //print(answerChosen)
         nextQuestion()
         
     }
@@ -68,7 +76,7 @@ class QuestionViewController: UIViewController {
     @IBAction func rangedAnswerButtonPressed() {
         let index = lrintf(rangedSlider.value)
         answerChosen.append(currentAnswers[index])
-        print(answerChosen)
+        //print(answerChosen)
         nextQuestion()
         
     }

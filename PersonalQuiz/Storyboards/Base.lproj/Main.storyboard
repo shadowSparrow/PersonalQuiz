@@ -86,7 +86,7 @@
         <!--вопрос №-->
         <scene sceneID="GRy-Fm-yDY">
             <objects>
-                <viewController id="q8U-Th-MIu" customClass="QuestionViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="questionVC" id="q8U-Th-MIu" customClass="QuestionViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2jf-5u-pTh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,13 +266,7 @@
                             </constraint>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="вопрос №" largeTitleDisplayMode="always" id="Jgh-wu-B5R">
-                        <barButtonItem key="rightBarButtonItem" title="3 = &gt;" id="06I-gr-ObM">
-                            <connections>
-                                <segue destination="Ool-qg-iRR" kind="show" id="llP-UZ-9d7"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="вопрос №" largeTitleDisplayMode="always" id="Jgh-wu-B5R"/>
                     <connections>
                         <outlet property="multipleStackView" destination="pik-3k-Ict" id="IC1-6T-9Fs"/>
                         <outlet property="progressView" destination="ozs-3V-xH7" id="DWO-jJ-Gyc"/>
@@ -304,7 +298,7 @@
         <!--Results View Controller-->
         <scene sceneID="Wzn-Mx-aO1">
             <objects>
-                <viewController id="Ool-qg-iRR" customClass="ResultsViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resultVC" id="Ool-qg-iRR" customClass="ResultsViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NE5-sZ-k4u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -348,6 +342,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="animalDescriptionLabel" destination="8ba-9A-D5Z" id="OFW-2x-lys"/>
+                        <outlet property="animalNameLabel" destination="Af7-QU-CdQ" id="Cmt-oI-t9I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFi-PV-WhZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="NNh-SI-3gZ" userLabel="Exit" sceneMemberID="exit"/>
@@ -375,9 +373,6 @@
             <point key="canvasLocation" x="1151" y="129"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="WRM-5Z-HJx"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
